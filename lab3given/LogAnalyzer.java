@@ -248,6 +248,7 @@ public class LogAnalyzer
          List<Integer>viewed_by_cust = new ArrayList<Integer>();
          List<String> sessions_per_cust = sessionsFromCustomer.get(customer);
          for (String session: sessions_per_cust){
+            Set already_viewed = new Set<View>();
             List<Buy> bought_per_sesh =  buysFromSession.get(session);
             for (Buy bought : bought_per_sesh) {
                int idAsInt = bought.productIDtoInt();
@@ -256,10 +257,12 @@ public class LogAnalyzer
             }
             List<View> view_per_sesh = viewsFromSession.get(session);
             for (View viewed : view_per_sesh){
+               if !(already_viewed.contains(viewed)){
                int idAsInt = viewed.productIDtoInt();
                int pos = viewed_by_cust.get(idAsInt);
                viewed_by_cust.set(idAsInt, pos + 1);
-
+               }
+               already_viewed.add(viewed);   
             }
          }
          int count = 0;
