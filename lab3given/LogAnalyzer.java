@@ -74,25 +74,25 @@ public class LogAnalyzer
       String session = words[VIEW_SESSION_ID];
       boolean found = false;
       for (View product: products){
-            if (product.productId.equals(words[VIEW_PRODUCT_ID])){
-               for (String sesh: product.views){
-                  if (sesh.equals(session)){
-                     break ;
-                  }
+            //if (product.productId.equals(words[VIEW_PRODUCT_ID])){
+               //for (String sesh: product.views){
+                  //if (sesh.equals(session)){
+                    // break ;
+                  //}
                }
-               product.views.add(words[VIEW_SESSION_ID]);
-               found = true;
-               break;
-            }
+               //product.views.add(words[VIEW_SESSION_ID]);
+               //found = true;
+               //break;
+            //}
          }
-         if (!found) {
+         //if (!found) {
             List <String> sesh_viewed = new LinkedList<>();
             List <String> sesh_bought = new LinkedList<>();
             sesh_viewed.add(words[VIEW_SESSION_ID]);
             View new_product = new View(words[VIEW_PRODUCT_ID], Integer.valueOf(words[VIEW_PRICE]));
             products.add(new_product);
 
-         }
+        // }
 
 
 
@@ -125,16 +125,16 @@ public class LogAnalyzer
          String session = words[BUY_SESSION_ID];
          boolean found = false;
          for (Buy product: products){
-            if (product.productId.equals(words[BUY_PRODUCT_ID])){
-               product.num_purchased +=1;
-               for (String sesh: product.views){
-                  if (sesh.equals(session)){
-                     break;
-                  }
-               }
+            //if (product.productId.equals(words[BUY_PRODUCT_ID])){
+               //product.num_purchased +=1;
+               //for (String sesh: product.views){
+                  //if (sesh.equals(session)){
+                     //break;
+                 // }
+               //}
                product.bought.add(words[BUY_SESSION_ID]);
-               found = true;
-               break;
+               //found = true;
+               //break;
             }
          }
          if (!found) {
@@ -353,7 +353,7 @@ public class LogAnalyzer
       try (Scanner input = new Scanner(new File(filename)))
       {
          processFile(input, sessionsFromCustomer, viewsFromSession, buysFromSession);
-         //System.out.println(99999);
+
       }
    }
 
@@ -380,7 +380,7 @@ public class LogAnalyzer
 
 
       /* create additional data structures to hold relevant information */
-      /* they will most likely be maps to important data in the logs */
+      /* they will most likely be maps to important data in the logs */pload it to a Web site or open it in 
 
       final String filename = "sample.log";
 
