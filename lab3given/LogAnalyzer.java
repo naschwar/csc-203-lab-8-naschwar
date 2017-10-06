@@ -258,11 +258,11 @@ public class LogAnalyzer
             List<View> view_per_sesh = viewsFromSession.get(session);
             for (View viewed : view_per_sesh){
                if !(already_viewed.contains(viewed)){
-               int idAsInt = viewed.productIDtoInt();
-               int pos = viewed_by_cust.get(idAsInt);
-               viewed_by_cust.set(idAsInt, pos + 1);
-               }
-               already_viewed.add(viewed);   
+                  int idAsInt = viewed.productIDtoInt();
+                  int pos = viewed_by_cust.get(idAsInt);
+                  viewed_by_cust.set(idAsInt, pos + 1);
+                  already_viewed.add(viewed); 
+               }  
             }
          }
          int count = 0;
