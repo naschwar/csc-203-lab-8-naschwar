@@ -69,8 +69,7 @@ public class LogAnalyzer
               .get(words[VIEW_SESSION_ID]);
       if (products == null) {
          products = new LinkedList<>();
-         String current_sesh_id = words[VIEW_SESSION_ID];
-         viewsFromSession.put(current_sesh_id, products);
+         
       }
       String session = words[VIEW_SESSION_ID];
       boolean found = false;
