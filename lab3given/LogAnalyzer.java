@@ -79,7 +79,7 @@ public class LogAnalyzer
                   //if (sesh.equals(session)){
                     // break ;
                   //}
-               }
+               //}
                //product.views.add(words[VIEW_SESSION_ID]);
                //found = true;
                //break;
