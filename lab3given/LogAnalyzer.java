@@ -138,7 +138,6 @@ public class LogAnalyzer
       {
          case START_TAG:
             processStartEntry(words, sessionsFromCustomer);
-           // System.out.println(sessionsFromCustomer);
             break;
          case VIEW_TAG:
             processViewEntry(words, viewsFromSession);
@@ -172,6 +171,7 @@ public class LogAnalyzer
       }
       double result = (double) (total_views / no_purchase_sesh);
       System.out.println("Average Views without Purchase: " + result);
+      System.out.println("");
    }
 
    private static void printSessionPriceDifference(Map<String, List<Buy>> buysFromSession,Map<String, List<View>> viewsFromSession) {
@@ -180,6 +180,7 @@ public class LogAnalyzer
          List<Buy> purchased_prods = new LinkedList<>();
          int cost_bought = 0;
          int count = 0;
+         boolean first = true;
          for (Buy product : buysFromSession.get(session)) {
             int amount_viewed = 0;
             cost_bought = product.cost;
@@ -192,15 +193,18 @@ public class LogAnalyzer
                   amount_viewed += 1;
                   viewed_cost += viewed.cost;
 
-
+               }
+               if (first){
+                  System.out.println(session);
+                  first = false;
                }
                int average = viewed_cost/amount_viewed;
-               System.out.println(product.productId + ":" + (double) (cost_bought - (viewed_cost / amount_viewed)));
+               System.out.println("   " + product.productId + ":" + (double) (cost_bought - (viewed_cost / amount_viewed)));
             }
             }
-
       /* add printing */
       }
+      System.out.println(""); 
    }
 
    //write this after you have figured out how to store your data
@@ -253,7 +257,7 @@ public class LogAnalyzer
                   System.out.println(customer);
                }
                count +=1;
-               System.out.println(keyView + "      " + num_sessions);
+               System.out.println("   " + keyView + " " + num_sessions);
             }
          }
 
