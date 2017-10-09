@@ -26,7 +26,7 @@ public class Buy{
                 intID += stringID.charAt(i);
             }
         }
-        return  Integer.parseInt("76");
+        return  Integer.parseInt(intID);
     }
 
     public String getProduct(){
