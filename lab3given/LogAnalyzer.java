@@ -245,10 +245,14 @@ public class LogAnalyzer
          for (String view_key : viewed_per_cust.keySet()){
             viewed_keys.add(view_key);
          }
+         int count = 0;
          for (String keyView : viewed_keys){
             if (bought_per_cust.contains(keyView)){
                int num_sessions = viewed_per_cust.get(keyView).size();
-               System.out.println(customer);
+               if (count == 0){
+                  System.out.println(customer);
+               }
+               count +=1;
                System.out.println(keyView + "      " + num_sessions);
             }
          }
@@ -267,8 +271,8 @@ public class LogAnalyzer
       /* add parameters as needed */
 
    {
-      //printViewsNotPurchased(sessionsFromCustomer, buysFromSession, viewsFromSession);
-      //printSessionPriceDifference(buysFromSession, viewsFromSession);
+      printViewsNotPurchased(sessionsFromCustomer, buysFromSession, viewsFromSession);
+      printSessionPriceDifference(buysFromSession, viewsFromSession);
       printCustomerItemViewsForPurchase(sessionsFromCustomer, viewsFromSession, buysFromSession);
 
       /* This is commented out as it will not work until you read
