@@ -362,7 +362,7 @@ public class LogAnalyzer
 
 
 
-      final String filename = "lab3given/sample.log";
+      final String filename = getFilename(args);
 
       try
       {
