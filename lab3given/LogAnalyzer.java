@@ -154,8 +154,8 @@ public class LogAnalyzer
    //write this after you have figured out how to store your data
    //make sure that you understand the problem
    private static void printViewsNotPurchased(Map<String, List<String>> sessionsFromCustomer, Map<String, List<Buy>> BuyFromSession, Map<String, List<View>> viewsFromSession) {
-      int no_purchase_sesh = 0;
-      int total_views = 0;
+      double no_purchase_sesh = 0;
+      double total_views = 0;
       for (String customer : sessionsFromCustomer.keySet()) {
          List<String> sessions = sessionsFromCustomer.get(customer);
          for (String session : sessions) {
@@ -182,9 +182,9 @@ public class LogAnalyzer
          int count = 0;
          boolean first = true;
          for (Buy product : buysFromSession.get(session)) {
-            int amount_viewed = 0;
+            double amount_viewed = 0;
             cost_bought = product.cost;
-            int viewed_cost = 0;
+            double viewed_cost = 0;
             if (viewsFromSession.get(session) != null) {
                count += 1;
                if (count == 1){
@@ -198,8 +198,8 @@ public class LogAnalyzer
                   System.out.println(session);
                   first = false;
                }
-               int average = viewed_cost/amount_viewed;
-               System.out.println("   " + product.productId + " " + (double) (cost_bought - (viewed_cost / amount_viewed)));
+               double average = viewed_cost/amount_viewed;
+               System.out.println("   " + product.productId + " " + (cost_bought - (viewed_cost / amount_viewed)));
             }
             }
       /* add printing */
@@ -362,7 +362,7 @@ public class LogAnalyzer
 
 
 
-      final String filename = getFilename(args);;
+      final String filename = "lab3given/sample.log";
 
       try
       {
