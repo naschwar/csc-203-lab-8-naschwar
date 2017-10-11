@@ -199,7 +199,7 @@ public class LogAnalyzer
                   first = false;
                }
                int average = viewed_cost/amount_viewed;
-               System.out.println("   " + product.productId + ":" + (double) (cost_bought - (viewed_cost / amount_viewed)));
+               System.out.println("   " + product.productId + " " + (double) (cost_bought - (viewed_cost / amount_viewed)));
             }
             }
       /* add printing */
@@ -362,7 +362,7 @@ public class LogAnalyzer
 
 
 
-      final String filename = "lab3given/small.log";
+      final String filename = getFilename(args);;
 
       try
       {
